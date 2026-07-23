@@ -1,6 +1,6 @@
 # 📓 Gemini Notebook Use Case Portal
 
-A zero-backend, enterprise-grade Single Page Application (SPA) designed to serve as a centralized knowledge-sharing hub. It documents how Google's NotebookLM features (like Mind Maps, Audio Overviews, and Data Tables) can be leveraged by technical support teams to drastically improve productivity and workflow efficiency.
+A zero-backend, enterprise-grade Single Page Application (SPA) designed to serve as a centralized knowledge-sharing hub. It documents how Google's NotebookLM features (like Mind Maps, Audio Overviews, and Data Tables) can be leveraged by technical support teams (e.g., Tableau Tech Support) to drastically improve productivity, investigate logs, and navigate system limitations.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
@@ -10,40 +10,40 @@ A zero-backend, enterprise-grade Single Page Application (SPA) designed to serve
 
 ## 🌟 Project Highlights & Insights
 
-Building a dynamic, media-heavy web application without a traditional backend (Node.js, Python, etc.) presents unique challenges, specifically regarding data persistence and routing. This project solves these elegantly:
+Building a dynamic, media-heavy web application without a traditional backend (Node.js, Python, etc.) presents unique challenges regarding data persistence and UI responsiveness. This project solves these elegantly:
 
 1. **Dual-Database Client-Side Architecture:** 
    Browsers limit `localStorage` to ~5MB. Storing multiple high-resolution screenshots as Base64 strings quickly crashes standard applications. To solve this, this app uses a **split-storage strategy**:
-   * **`localStorage`** is used for instant, synchronous retrieval of text data (titles, descriptions, settings).
+   * **`localStorage`** is used for instant, synchronous retrieval of text data (titles, descriptions, settings, prompts).
    * **`IndexedDB`** is used as an asynchronous, high-capacity database to store heavy binary media (images), preventing UI freezes and data loss.
-2. **SPA Routing in a Single File:** 
+2. **SPA Routing & State Management in a Single File:** 
    Using native JavaScript `URLSearchParams` and the `HashChangeEvent` API, the application simulates a multi-page environment inside one `index.html` file (e.g., `index.html?id=123` opens a specific case study in a new tab, while `#admin` opens the settings panel).
-3. **Smart Media Parser:** 
-   Browsers strictly block standard YouTube watch links (`youtube.com/watch?v=`) inside iframes for security. The app features a built-in URL parser that automatically detects standard YouTube and Loom links and converts them into their secure, embeddable equivalents on the fly.
+3. **Custom SVG Graphics & Animations:**
+   Instead of relying on external image dependencies, the platform uses custom, scalable SVGs built directly into the HTML (e.g., the Gemini Notebook Hero Logo) paired with frosted glassmorphism UI elements and smooth-scrolling sticky navigation.
 
 ## ✨ Core Features
 
-### 📝 For Content Creators
-* **Rich Feature Documentation:** Add detailed use cases including Titles, Details, Usecases (with native bullet-point formatting), and Reference URLs.
-* **Media Uploader:** Drag-and-drop multiple screenshots (auto-resized to fit the UI) and paste video links (YouTube/Loom supported).
-* **Persistent Drafting:** Even if you close the browser, your uploaded images remain in the browser's memory until you publish.
+### 📝 For Content Creators & Engineers
+* **Expert Prompt Templates:** Ready-to-use prompt samples tailored for Tableau Tech Support Engineers (Log analysis, RCA documentation, etc.), complete with a 1-click "Copy to Clipboard" button.
+* **Rich Feature Documentation:** Add detailed use cases including Titles, Details, Usecases, and Reference links.
+* **Media Uploader & Cropper:** Upload screenshots directly in the browser and crop/edit them seamlessly using the integrated image cropper within the Admin Panel.
+* **Slack Canvas Generator:** Instantly generate a clean, text-formatted summary of the entire portal to copy directly into Slack or download as a `.txt` file.
 
-### 📖 For Readers (Stakeholders / Support Teams)
-* **Split-Screen Reading Experience:** When viewing a feature, the left side holds crisp, scrolling text while the right side remains *sticky*, continuously displaying images/videos as you read.
+### 📖 For Readers & Stakeholders
+* **World-Class UI/UX:** A highly polished "Sophisticated Enterprise" design language featuring sticky navigation, hover micro-animations, and responsive glass panels.
+* **Split-Screen Reading Experience:** When viewing a feature, the left side holds crisp, scrolling text while the right side remains *sticky*, continuously displaying images as you read.
 * **Global Dark Mode:** Persists seamlessly across all tabs and page refreshes.
-* **"View All" Dashboard:** A clean, card-based grid layout to browse all documented features at a glance.
 
 ### ⚙️ For Administrators
 * **Password-Protected Dashboard:** Client-side gated access to manage content.
-* **Full CRUD Operations:** Seamlessly Edit, Update, or Delete published features.
-* **Dynamic Settings:** Update the Portal Title, Admin Feedback Email, and Portal Password directly from the UI.
-* **Cross-Browser Data Portability:** Easily export the entire database (text + images) as a single `.json` file, and import it on another computer or browser to sync environments.
+* **Full CRUD Operations:** Seamlessly Add, Edit, or Delete published features and Expert Prompt Samples.
+* **Cross-Browser Data Portability:** Easily export the entire database (text + images) as a single `.json` file from the Admin panel, and import it on another computer or browser to sync environments.
 
 ## 🛠️ Tech Stack & Design System
 
 * **Framework:** Vanilla JavaScript (ES6+). No React or Vue was used to ensure maximum portability and zero build steps.
 * **Styling:** Tailwind CSS (via Play CDN). 
-* **Design Language:** "Sophisticated Enterprise." Uses a custom palette of Deep Slates, Gemini Blues, and Emerald accents. High-contrast text (WCAG compliant) with optimized font rendering (`antialiased`, `optimizeLegibility`).
+* **Typography:** `Inter` for primary sans-serif body text and `Fira Code` for prompt variables and code snippets.
 * **Icons:** Custom inline SVGs mapped to Lucide-React standards for zero external dependencies.
 
 ## 🚀 How to Run Locally
@@ -52,44 +52,34 @@ Because there is no build process or backend, running this project is as simple 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/notebook-portal.git
+   git clone https://git.soma.salesforce.com/anarsikar/GeminiNBLM_Casestudy.git
    ```
-2. Navigate to the folder and simply double-click `index.html`, or open it via your preferred browser.
+2. Navigate to the folder and simply double-click `Index.html`, or open it via your preferred browser.
    ```bash
    # On Mac
-   open index.html
+   open Index.html
    
    # On Windows
-   start index.html
+   start Index.html
    ```
 3. That's it. The app is live.
 
 ## 📂 Project Structure
 Despite being a single file, the code is strictly modularized via clear comment blocks:
 ```text
-├── index.html          # The entire application
+├── Index.html          # The entire application (HTML, CSS, JS)
 ├── README.md           # You are here
 └── (Internal HTML Structure)
-    ├── <header>        # Global Nav & Theme Toggle
+    ├── <header>        # Sticky Nav, Admin Link & Theme Toggle
     ├── <main>
-    │   ├── Dashboard   # Creator Form + Sidebar
-    │   ├── View All    # Grid View
-    │   ├── Feature     # Split-Screen Reader
-    │   └── Admin       # CRUD Panel
-    ├── <dialog>        # Feedback Modal
-    └── <script>        # State, DB, Router, Logic
+    │   ├── Hero        # Branding and SVG Logo
+    │   ├── Prompts     # Copiable Expert Prompt Samples
+    │   ├── View All    # Grid View for Usecases
+    │   ├── Feature     # Split-Screen Detail Reader
+    │   └── Admin       # CRUD Panel (Usecases, Prompts, Image Cropper)
+    ├── <dialog>        # Feedback & Slack Canvas Modals
+    └── <script>        # State, IndexedDB, Router, Logic
 ```
-
-## 🔮 Future Roadmap (If moving to Production)
-* Swap the `localStorage`/`IndexedDB` logic for a REST API (e.g., Next.js routes connected to a PostgreSQL database and AWS S3 for images).
-* Implement Role-Based Access Control (RBAC) via Auth0 or Firebase Auth.
-* Add full-text search using Fuse.js to search through long-form use cases.
 
 ## 📄 License
 This project is intended for internal use. All rights reserved.
-```
-
-### Why this README works for stakeholders:
-* **The "Insights" section** translates complex technical work (the IndexedDB fix, the iframe parser) into business value (preventing crashes, seamless UX). 
-* **The "How to Run" section** proves immediately that there are no server costs or complex setup hurdles.
-* **The "Future Roadmap"** shows that you didn't just build a dead-end prototype, but a scalable foundation.
