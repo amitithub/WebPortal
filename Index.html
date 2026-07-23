@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gemini Notebook Use Case</title>
     <meta name="description" content="Internal knowledge portal documenting Google NotebookLM use cases for Tableau Technical Support productivity.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📓</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%234285f4'/><stop offset='100%25' stop-color='%237c3aed'/></linearGradient></defs><rect fill='url(%23g)' width='32' height='32' rx='8'/><path d='M10 8h12a2 2 0 012 2v12a2 2 0 01-2 2H10a2 2 0 01-2-2V10a2 2 0 012-2z' fill='white' fill-opacity='0.9'/><path d='M12 13h8M12 16.5h8M12 20h5' stroke='%234285f4' stroke-width='1.5' stroke-linecap='round'/></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,8 +77,15 @@
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                     <div class="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gemini-yellow border-2 border-white dark:border-slate-900"></div>
                 </div>
-                <h1 id="header-title" class="text-lg font-bold leading-tight text-slate-900 dark:text-white">Gemini Notebook Use Case</h1>
+                <h1 id="header-title" class="text-lg font-bold leading-tight text-slate-900 dark:text-white hidden sm:block">Gemini Notebook Use Case</h1>
             </a>
+            
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#case-studies-anchor" class="text-sm font-semibold text-slate-600 hover:text-slate-blue-600 dark:text-slate-300 dark:hover:text-slate-blue-400 transition-colors transform hover:-translate-y-0.5">Use Cases</a>
+                <a href="#usecases-grid-section" class="text-sm font-semibold text-slate-600 hover:text-slate-blue-600 dark:text-slate-300 dark:hover:text-slate-blue-400 transition-colors transform hover:-translate-y-0.5">Published Usecases</a>
+                <a href="#prompt-samples-section" class="text-sm font-semibold text-slate-600 hover:text-slate-blue-600 dark:text-slate-300 dark:hover:text-slate-blue-400 transition-colors transform hover:-translate-y-0.5">Prompts</a>
+            </nav>
+
             <div class="flex items-center gap-3">
                 <a id="nav-admin-link" href="#admin" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -119,17 +126,40 @@
     <!-- ========== VIEW: HOME DASHBOARD ========== -->
     <main id="home-view" class="hidden flex-1">
         <!-- Hero Section -->
-        <section class="hero-gradient text-white py-16 sm:py-20 px-4">
-            <div class="mx-auto max-w-7xl text-center">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    AI-Powered Knowledge Hub
+        <section class="hero-gradient text-white py-16 sm:py-24 px-4 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjIpIi8+PC9zdmc+')] opacity-20"></div>
+            <div class="mx-auto max-w-7xl text-center relative z-10">
+                <div class="flex items-center justify-center mb-8">
+                    <svg width="100" height="66" viewBox="0 0 70 46" xmlns="http://www.w3.org/2000/svg" class="filter drop-shadow-xl transform hover:scale-105 transition-transform duration-500">
+                        <defs>
+                            <linearGradient id="gemHero1" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#e0e7ff" />
+                                <stop offset="100%" stop-color="#60a5fa" />
+                            </linearGradient>
+                            <linearGradient id="gemHero2" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#c7d2fe" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                            <linearGradient id="gemHero3" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#a5b4fc" />
+                                <stop offset="100%" stop-color="#1d4ed8" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Outer Arch -->
+                        <path d="M 6 40 A 29 29 0 0 1 64 40" fill="none" stroke="url(#gemHero1)" stroke-width="8" stroke-linecap="round" />
+                        <!-- Middle Arch -->
+                        <path d="M 18 40 A 17 17 0 0 1 52 40" fill="none" stroke="url(#gemHero2)" stroke-width="8" stroke-linecap="round" />
+                        <!-- Inner Arch -->
+                        <path d="M 30 40 A 5 5 0 0 1 40 40" fill="none" stroke="url(#gemHero3)" stroke-width="8" stroke-linecap="round" />
+                    </svg>
                 </div>
-                <h2 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight">Gemini Notebook Use Case</h2>
-                <p id="hero-subtitle" class="max-w-2xl mx-auto text-base sm:text-lg text-white/80 mb-8 leading-relaxed">Strategically leverage Google NotebookLM's features to streamline complex enterprise troubleshooting, navigate system limitations, and boost daily productivity.</p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a href="#case-studies-anchor" class="px-6 py-3 bg-white text-slate-blue-700 rounded-xl font-bold hover:bg-slate-100 transition-colors shadow-lg hover:shadow-xl">Explore Use Cases</a>
-                    <a href="#create" class="px-6 py-3 bg-white/15 text-white rounded-xl font-bold hover:bg-white/25 transition-colors backdrop-blur-sm border border-white/20">+ Submit New Usecase</a>
+                
+                <h2 id="hero-title" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight drop-shadow-sm">Gemini Notebook Use Case</h2>
+                <p id="hero-subtitle" class="max-w-3xl mx-auto text-lg sm:text-xl text-white/90 mb-10 leading-relaxed font-medium">Strategically leverage Google NotebookLM's features to streamline complex enterprise troubleshooting, navigate system limitations, and boost daily productivity.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#case-studies-anchor" class="px-8 py-3.5 bg-white text-slate-blue-700 rounded-xl font-bold hover:bg-slate-50 transition-all transform hover:-translate-y-1 shadow-xl hover:shadow-2xl">Explore Use Cases</a>
+                    <a href="#create" class="px-8 py-3.5 bg-white/10 text-white rounded-xl font-bold hover:bg-white/20 transition-all transform hover:-translate-y-1 backdrop-blur-md border border-white/20 shadow-lg">Submit New Usecase</a>
                 </div>
             </div>
         </section>
@@ -139,6 +169,8 @@
             <section id="overview-section">
                 <div id="overview-content" class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-card dark:shadow-card-dark p-6 sm:p-8"></div>
             </section>
+
+
 
             <!-- Case Studies & Impact -->
             <section id="case-studies-anchor">
@@ -171,7 +203,7 @@
             </section>
 
             <!-- Search & Usecases Grid -->
-            <section>
+            <section id="usecases-grid-section">
                 <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
                     <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">Published Usecases</h3>
                     <div class="relative w-full sm:w-80">
@@ -182,15 +214,22 @@
                 <div id="usecases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </section>
 
+            <!-- Prompt Samples -->
+            <section id="prompt-samples-section" class="hidden mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">Expert Prompts</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mt-1">Ready-to-use prompt templates for Tableau Technical Support.</p>
+                    </div>
+                </div>
+                <div id="prompt-samples-list" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            </section>
+
             <!-- Footer Actions -->
             <section class="border-t border-slate-200 dark:border-slate-700 pt-6 flex flex-wrap items-center justify-center gap-3">
-                <button onclick="exportData()" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 rounded-lg transition-colors border border-emerald-200 dark:border-emerald-800">
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> Export
+                <button onclick="openSlackCanvas()" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors border border-indigo-200 dark:border-indigo-800">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> Slack Canvas
                 </button>
-                <label class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors border border-slate-200 dark:border-slate-600 cursor-pointer">
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg> Import
-                    <input type="file" accept=".json" class="hidden" onchange="importData(event)">
-                </label>
             </section>
         </div>
     </main>
@@ -213,11 +252,11 @@
                 </div>
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Description</label>
-                    <textarea id="f-details" required rows="4" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 focus:border-slate-blue-500 focus:ring-1 focus:ring-slate-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none transition-colors resize-none preserve-formatting"></textarea>
+                    <textarea id="f-details" required rows="4" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 focus:border-slate-blue-500 focus:ring-1 focus:ring-slate-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none transition-colors resize-y preserve-formatting"></textarea>
                 </div>
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Impact &amp; Application</label>
-                    <textarea id="f-usecase" required rows="4" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 focus:border-slate-blue-500 focus:ring-1 focus:ring-slate-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none transition-colors resize-none preserve-formatting"></textarea>
+                    <textarea id="f-usecase" required rows="4" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 focus:border-slate-blue-500 focus:ring-1 focus:ring-slate-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none transition-colors resize-y preserve-formatting"></textarea>
                 </div>
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Documentation Link</label>
@@ -236,7 +275,7 @@
                         </div>
                         <div class="relative">
                             <svg class="absolute left-3 top-3.5 h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            <input type="url" id="f-video" class="w-full h-40 rounded-lg border border-slate-300 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 focus:border-slate-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none transition-colors resize-none" placeholder="Paste Loom/YouTube Demo Link">
+                            <input type="url" id="f-video" class="w-full h-40 rounded-lg border border-slate-300 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 focus:border-slate-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none transition-colors resize-y" placeholder="Paste Loom/YouTube Demo Link">
                         </div>
                     </div>
                 </div>
@@ -286,6 +325,7 @@
                 <button onclick="switchAdminTab('settings')" class="admin-tab-btn active px-4 py-3 text-sm font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap" data-tab="settings">Settings</button>
                 <button onclick="switchAdminTab('usecases')" class="admin-tab-btn px-4 py-3 text-sm font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap" data-tab="usecases">Usecases Management</button>
                 <button onclick="switchAdminTab('casestudy')" class="admin-tab-btn px-4 py-3 text-sm font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap" data-tab="casestudy">Landing Page Content</button>
+                <button onclick="switchAdminTab('prompts')" class="admin-tab-btn px-4 py-3 text-sm font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap" data-tab="prompts">Prompts</button>
                 <button onclick="switchAdminTab('exportimport')" class="admin-tab-btn px-4 py-3 text-sm font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap" data-tab="exportimport">Export / Import</button>
             </div>
 
@@ -317,15 +357,15 @@
                     <h3 class="font-bold text-lg mb-4 text-slate-900 dark:text-white">Landing Overview</h3>
                     <div class="space-y-3">
                         <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Title</label><input type="text" id="edit-overview-title" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none focus:border-slate-blue-500"></div>
-                        <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Content</label><textarea id="edit-overview-content" rows="3" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none focus:border-slate-blue-500 resize-none"></textarea></div>
-                        <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Support Context</label><textarea id="edit-overview-context" rows="2" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none focus:border-slate-blue-500 resize-none"></textarea></div>
+                        <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Main Content</label><textarea id="edit-overview-content" rows="3" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none focus:border-slate-blue-500 resize-y"></textarea></div>
+                        <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Support Context</label><textarea id="edit-overview-context" rows="2" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none focus:border-slate-blue-500 resize-y"></textarea></div>
                         <button onclick="saveLandingOverview()" class="px-4 py-2 bg-gemini-green text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity">Save Overview</button>
                     </div>
                 </div>
                 <!-- Summary Editor -->
                 <div class="p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-card dark:shadow-card-dark">
                     <h3 class="font-bold text-lg mb-4 text-slate-900 dark:text-white">Landing Summary</h3>
-                    <textarea id="edit-landing-summary" rows="3" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none focus:border-slate-blue-500 resize-none"></textarea>
+                    <textarea id="edit-landing-summary" rows="3" class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 outline-none focus:border-slate-blue-500 resize-y"></textarea>
                     <button onclick="saveLandingSummary()" class="mt-3 px-4 py-2 bg-gemini-green text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity">Save Summary</button>
                 </div>
                 <!-- Case Study Sections CRUD -->
@@ -335,6 +375,20 @@
                         <button onclick="addCaseStudySection()" class="px-3 py-1.5 bg-gemini-blue text-white text-xs font-bold rounded-lg hover:bg-blue-600 transition-colors">+ Add Section</button>
                     </div>
                     <div id="admin-cs-list" class="space-y-4 max-h-[600px] overflow-y-auto pr-2"></div>
+                </div>
+            </div>
+
+            <!-- Tab: Prompt Samples -->
+            <div id="admin-tab-prompts" class="admin-tab-content hidden">
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-card dark:shadow-card-dark p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Manage Prompts</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Add or edit prompts displayed on the landing page.</p>
+                        </div>
+                        <button onclick="handleAddPrompt()" class="px-4 py-2 bg-slate-blue-600 hover:bg-slate-blue-700 text-white text-sm font-bold rounded-lg transition-colors shadow-sm">+ Add Prompt</button>
+                    </div>
+                    <div id="admin-prompts-list" class="space-y-4 max-h-[600px] overflow-y-auto pr-2"></div>
                 </div>
             </div>
 
@@ -369,7 +423,7 @@
             <form id="feedback-form" class="space-y-5">
                 <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Rating</label><div id="starRating" class="flex gap-1"><button type="button" onclick="setRating(1)" class="star-btn text-slate-300 hover:text-amber-500 dark:text-slate-600 dark:hover:text-amber-400 transition-colors"><svg class="h-7 w-7" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button><button type="button" onclick="setRating(2)" class="star-btn text-slate-300 hover:text-amber-500 dark:text-slate-600 dark:hover:text-amber-400 transition-colors"><svg class="h-7 w-7" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button><button type="button" onclick="setRating(3)" class="star-btn text-slate-300 hover:text-amber-500 dark:text-slate-600 dark:hover:text-amber-400 transition-colors"><svg class="h-7 w-7" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button><button type="button" onclick="setRating(4)" class="star-btn text-slate-300 hover:text-amber-500 dark:text-slate-600 dark:hover:text-amber-400 transition-colors"><svg class="h-7 w-7" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button><button type="button" onclick="setRating(5)" class="star-btn text-slate-300 hover:text-amber-500 dark:text-slate-600 dark:hover:text-amber-400 transition-colors"><svg class="h-7 w-7" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button></div></div>
                 <div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Type</label><div class="flex gap-4"><label class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 cursor-pointer"><input type="radio" name="fbType" value="Suggestion" checked class="accent-slate-blue-600 w-4 h-4"> Suggestion</label><label class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 cursor-pointer"><input type="radio" name="fbType" value="Bug Report" class="accent-red-500 w-4 h-4"> Bug Report</label></div></div>
-                <div><label for="fbMessage" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label><textarea id="fbMessage" rows="3" required placeholder="Tell us more..." class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-slate-blue-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 outline-none transition-colors resize-none"></textarea></div>
+                <div><label for="fbMessage" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label><textarea id="fbMessage" rows="3" required placeholder="Tell us more..." class="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:border-slate-blue-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 outline-none transition-colors resize-y"></textarea></div>
                 <div class="flex justify-end gap-3 pt-2">
                     <button type="button" onclick="closeFeedbackModal()" class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition-colors">Cancel</button>
                     <button type="submit" id="fb-submit-btn" class="rounded-lg bg-slate-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-blue-700 transition-colors">Submit</button>
@@ -398,6 +452,33 @@
             <div class="flex justify-end gap-3">
                 <button onclick="closeImageEditor()" class="rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 transition-colors">Cancel</button>
                 <button onclick="applyImageEdit()" class="rounded-lg bg-gemini-blue px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-blue-600 transition-colors">Apply Changes</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- ========== MODAL: Slack Canvas ========== -->
+    <dialog id="slackCanvasModal" class="w-full max-w-3xl rounded-2xl border border-slate-200 bg-white p-0 shadow-2xl dark:border-slate-700 dark:bg-slate-800 backdrop:bg-black/70 backdrop:backdrop-blur-sm">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <svg class="h-5 w-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Slack Canvas
+                </h3>
+                <button onclick="closeSlackCanvas()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Copy the formatted content below and paste it into a Slack canvas or message.</p>
+            <div class="bg-slate-50 dark:bg-slate-900 rounded-xl p-5 mb-4 max-h-[55vh] overflow-y-auto border border-slate-200 dark:border-slate-700">
+                <pre id="slack-canvas-content" class="whitespace-pre-wrap break-words text-sm font-mono text-slate-700 dark:text-slate-300 leading-relaxed"></pre>
+            </div>
+            <div class="flex justify-end gap-3">
+                <button onclick="downloadSlackCanvas()" class="flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 transition-colors">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Download .txt
+                </button>
+                <button onclick="copySlackCanvas()" class="flex items-center gap-2 rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-indigo-700 transition-colors">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                    Copy to Clipboard
+                </button>
             </div>
         </div>
     </dialog>
@@ -436,6 +517,12 @@
             landingSummary: 'NotebookLM offers meaningful productivity gains for Technical Support workflows — from faster RCA investigations to secure handling of customer data and visual exploration of complex documentation. Its grounding in uploaded sources keeps responses reliable and reduces hallucination risks compared to general-purpose AI tools.',
             caseStudySections: DEFAULT_CASE_STUDIES,
             features: [],
+            promptSamples: [
+                { id: 'p1', title: 'Log Analysis & RCA', text: 'Act as a senior Tableau engineer. Analyze these server logs. Identify all fatal error codes, extract their exact timestamps, and summarize the sequence of events leading up to the crash.' },
+                { id: 'p2', title: 'Backgrounder Jobs Table', text: 'Create a data table listing all backgrounder jobs (e.g., Extract Refreshes, Subscriptions). Include the job ID, start time, end time, and status from the uploaded logs.' },
+                { id: 'p3', title: 'Cross-Case Knowledge Search', text: 'Search the uploaded past RCA documents and case notes. Has a similar VizQL session error occurred before? If so, what was the root cause and the applied workaround?' },
+                { id: 'p4', title: 'Documentation Summarization', text: 'Provide a concise, 5-point summary of the key limitations and workarounds mentioned in this Tableau Server deployment guide.' }
+            ],
             setupComplete: false
         };
 
@@ -446,6 +533,8 @@
         let cropperInstance = null;
         let editingImageIndex = -1;
         let searchDebounceTimer = null;
+        let adminEditImages = [];
+        let editingImageSource = 'creator';
 
         function loadState() {
             try {
@@ -457,11 +546,15 @@
                         ...DEFAULT_STATE,
                         ...parsed,
                         landingOverview: { ...DEFAULT_STATE.landingOverview, ...(parsed.landingOverview || {}) },
-                        caseStudySections: parsed.caseStudySections || DEFAULT_CASE_STUDIES
+                        landingSummary: parsed.landingSummary || DEFAULT_STATE.landingSummary,
+                        caseStudySections: parsed.caseStudySections || DEFAULT_CASE_STUDIES,
+                        features: parsed.features || [],
+                        promptSamples: parsed.promptSamples || DEFAULT_STATE.promptSamples,
+                        setupComplete: parsed.setupComplete || false
                     };
                 }
-            } catch(e) {}
-            return { ...DEFAULT_STATE, caseStudySections: [...DEFAULT_CASE_STUDIES] };
+            } catch(e) { console.error('Failed to parse state:', e); }
+            return { ...DEFAULT_STATE, caseStudySections: [...DEFAULT_CASE_STUDIES], promptSamples: [...DEFAULT_STATE.promptSamples] };
         }
         function saveState() { try { localStorage.setItem('notebook_portal_state', JSON.stringify(state)); } catch(e) {} }
 
@@ -633,11 +726,44 @@
 
         function removeImage(i) { tempImages.splice(i, 1); renderImagePreviews(); }
 
-        function openImageEditor(index) {
+        // ===== ADMIN IMAGE MANAGEMENT =====
+        function renderAdminEditPreviews() {
+            const container = document.getElementById('admin-img-previews');
+            if (!container) return;
+            container.innerHTML = adminEditImages.length ? adminEditImages.map((src, i) => `
+                <div class="relative h-20 w-20 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-600 img-thumb">
+                    <img src="${src}" alt="Preview" class="h-full w-full object-cover">
+                    <div class="img-overlay absolute inset-0 bg-black/60 flex items-center justify-center gap-2">
+                        <button type="button" onclick="openImageEditor(${i}, 'admin')" class="p-1.5 bg-white/20 rounded-md hover:bg-white/40 transition-colors text-white" title="Edit">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                        </button>
+                        <button type="button" onclick="removeAdminImage(${i})" class="p-1.5 bg-white/20 rounded-md hover:bg-red-500/80 transition-colors text-white" title="Delete">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            `).join('') : '<span class="text-xs text-slate-400 italic">No images attached</span>';
+        }
+
+        function removeAdminImage(i) { adminEditImages.splice(i, 1); renderAdminEditPreviews(); }
+
+        function handleAdminImageUpload(e) {
+            Array.from(e.target.files).forEach(f => {
+                if (f.size > 5*1024*1024) { showToast('Image > 5MB','error'); return; }
+                const r = new FileReader();
+                r.onloadend = () => { adminEditImages.push(r.result); renderAdminEditPreviews(); };
+                r.readAsDataURL(f);
+            });
+            e.target.value = '';
+        }
+
+        function openImageEditor(index, source) {
             editingImageIndex = index;
+            editingImageSource = source || 'creator';
+            const images = editingImageSource === 'admin' ? adminEditImages : tempImages;
             const modal = document.getElementById('imageEditorModal');
             const img = document.getElementById('editor-image');
-            img.src = tempImages[index];
+            img.src = images[index];
             modal.showModal();
             // Wait for image to load then init Cropper
             img.onload = () => {
@@ -666,9 +792,14 @@
         function applyImageEdit() {
             if (!cropperInstance || editingImageIndex < 0) return;
             const canvas = cropperInstance.getCroppedCanvas({ maxWidth: 1920, maxHeight: 1080 });
-            tempImages[editingImageIndex] = canvas.toDataURL('image/jpeg', 0.85);
+            const images = editingImageSource === 'admin' ? adminEditImages : tempImages;
+            images[editingImageIndex] = canvas.toDataURL('image/jpeg', 0.85);
             closeImageEditor();
-            renderImagePreviews();
+            if (editingImageSource === 'admin') {
+                renderAdminEditPreviews();
+            } else {
+                renderImagePreviews();
+            }
             showToast('Image edited successfully!');
         }
 
@@ -709,6 +840,9 @@
             // Overview
             renderOverview();
 
+            // Prompt Samples
+            renderPromptSamples();
+
             // Case Studies
             renderCaseStudies();
 
@@ -736,6 +870,44 @@
                     </div>
                 </div>
             `;
+        }
+
+        function renderPromptSamples() {
+            const list = document.getElementById('prompt-samples-list');
+            const section = document.getElementById('prompt-samples-section');
+            const samples = state.promptSamples || [];
+            
+            if (!samples.length) {
+                section.classList.add('hidden');
+                return;
+            }
+            
+            section.classList.remove('hidden');
+            list.innerHTML = samples.map(p => `
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 relative group">
+                    <button onclick="copyPrompt('${p.id}')" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-blue-600 dark:hover:text-slate-blue-400 bg-slate-50 dark:bg-slate-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" title="Copy Prompt">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                    </button>
+                    <div class="flex items-center gap-3 mb-3 pr-8">
+                        <div class="h-8 w-8 rounded-full bg-slate-blue-100 dark:bg-slate-blue-900/30 flex items-center justify-center text-slate-blue-600 dark:text-slate-blue-400">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base">${p.title}</h4>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-lg border border-slate-100 dark:border-slate-700">
+                        <p id="prompt-text-${p.id}" class="text-slate-600 dark:text-slate-300 text-sm font-mono preserve-formatting select-all">${p.text}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function copyPrompt(id) {
+            const text = document.getElementById(`prompt-text-${id}`).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Prompt copied to clipboard!');
+            }).catch(() => {
+                showToast('Failed to copy prompt.', true);
+            });
         }
 
         function renderCaseStudies() {
@@ -876,7 +1048,7 @@
                     <span class="inline-block rounded-full bg-gemini-blue/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gemini-blue dark:bg-gemini-blue/20 mb-4">NotebookLM Usecase</span>
                     <h1 class="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-8 leading-tight">${f.title}</h1>
                     <div class="mb-8"><h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">Description</h2><p class="text-slate-700 dark:text-slate-300 leading-7 text-base preserve-formatting">${f.details}</p></div>
-                    <div class="mb-8"><h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">Impact & Application</h2><div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-5 rounded-xl"><p class="text-slate-700 dark:text-slate-200 leading-7 text-base font-mono preserve-formatting">${f.usecase}</p></div></div>
+                    <div class="mb-8"><h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">Impact & Application</h2><div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-5 rounded-xl"><p class="text-slate-700 dark:text-slate-200 leading-7 text-base preserve-formatting">${f.usecase}</p></div></div>
                     ${f.refUrl ? `<div class="mb-8"><h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">Documentation Link</h2><a href="${f.refUrl}" target="_blank" class="text-slate-blue-600 hover:underline break-all">${f.refUrl}</a></div>` : ''}
                     <button onclick="openFeedbackModal('${f.id}')" class="mt-4 w-full sm:w-auto px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-2"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>Leave Feedback</button>
                 </div>`;
@@ -888,10 +1060,11 @@
             if (!allMedia.length) {
                 document.getElementById('feature-media-container').innerHTML = '<div class="text-slate-400 text-sm text-center mt-20">No Media Attached</div>';
             } else {
-                document.getElementById('feature-media-container').innerHTML = allMedia.map(m => {
+                const mediaHTML = allMedia.map(m => {
                     if (m.type === 'image') return `<div class="w-full max-w-2xl mb-6 bg-white p-2 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"><img src="${m.url}" alt="Media" class="w-full h-auto max-h-[80vh] object-contain rounded-lg"></div>`;
                     return `<div class="w-full max-w-2xl mb-6 aspect-video bg-black rounded-xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-700"><iframe src="${getEmbedUrl(m.url)}" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
                 }).join('');
+                document.getElementById('feature-media-container').innerHTML = mediaHTML;
             }
         }
 
@@ -907,6 +1080,7 @@
                 renderAdminFeatures();
                 populateLandingEditors();
                 renderAdminCaseStudies();
+                renderAdminPrompts();
             } else {
                 document.getElementById('login-error').classList.remove('hidden');
             }
@@ -919,6 +1093,7 @@
             document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
             if (tab === 'usecases') renderAdminFeatures();
             if (tab === 'casestudy') { populateLandingEditors(); renderAdminCaseStudies(); }
+            if (tab === 'prompts') renderAdminPrompts();
         }
 
         function populateAdminSettings() {
@@ -937,17 +1112,27 @@
         }
 
         // -- Admin: Usecases CRUD --
-        function renderAdminFeatures() {
+        async function renderAdminFeatures() {
             const l = document.getElementById('admin-features-list');
             if (!state.features.length) { l.innerHTML = '<p class="text-sm text-slate-500 text-center py-8">No usecases.</p>'; return; }
             l.innerHTML = state.features.map(f => {
                 if (f.id === editingFeatureId) {
                     return `<div class="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border-2 border-slate-blue-400 space-y-3">
                         <input type="text" id="et-${f.id}" value="${f.title}" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 font-bold">
-                        <textarea id="ed-${f.id}" rows="2" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-none">${f.details}</textarea>
-                        <textarea id="eu-${f.id}" rows="2" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-none">${f.usecase}</textarea>
+                        <textarea id="ed-${f.id}" rows="3" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-y">${f.details}</textarea>
+                        <textarea id="eu-${f.id}" rows="3" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-y">${f.usecase}</textarea>
                         <input type="url" id="eur-${f.id}" value="${f.refUrl||''}" placeholder="Documentation Link" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500">
                         <input type="url" id="ev-${f.id}" value="${f.media && f.media.find(m=>m.type==='video')?.url||''}" placeholder="Video URL" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500">
+                        <div class="border-t border-slate-200 dark:border-slate-700 pt-3">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Images</span>
+                                <label class="px-3 py-1.5 text-xs font-bold bg-gemini-blue text-white rounded-md cursor-pointer hover:bg-blue-600 transition-colors">
+                                    + Upload
+                                    <input type="file" accept="image/*" multiple class="hidden" onchange="handleAdminImageUpload(event)">
+                                </label>
+                            </div>
+                            <div id="admin-img-previews" class="flex flex-wrap gap-2 min-h-[24px]"></div>
+                        </div>
                         <div class="flex gap-3 justify-end pt-1"><button onclick="cancelEdit()" class="px-4 py-2 text-sm font-bold rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Cancel</button><button onclick="handleUpdateFeature('${f.id}')" class="px-4 py-2 text-sm font-bold rounded-lg bg-gemini-green text-white">Update</button></div></div>`;
                 } else {
                     return `<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -958,11 +1143,20 @@
                         </div></div>`;
                 }
             }).join('');
+            // After DOM update, render image previews for editing feature
+            if (editingFeatureId) {
+                requestAnimationFrame(() => renderAdminEditPreviews());
+            }
         }
 
-        function startEdit(id) { editingFeatureId = id; renderAdminFeatures(); }
-        function cancelEdit() { editingFeatureId = null; renderAdminFeatures(); }
-        function handleUpdateFeature(id) {
+        async function startEdit(id) {
+            editingFeatureId = id;
+            const imgs = await getMedia(id);
+            adminEditImages = (imgs || []).map(img => typeof img === 'string' ? img : img.url);
+            renderAdminFeatures();
+        }
+        function cancelEdit() { editingFeatureId = null; adminEditImages = []; renderAdminFeatures(); }
+        async function handleUpdateFeature(id) {
             const f = state.features.find(x => x.id === id); if (!f) return;
             f.title = document.getElementById(`et-${id}`).value.trim();
             f.details = document.getElementById(`ed-${id}`).value.trim();
@@ -970,7 +1164,13 @@
             f.refUrl = document.getElementById(`eur-${id}`).value.trim();
             const v = document.getElementById(`ev-${id}`).value.trim();
             f.media = v ? [{type:'video', url:v}] : [];
-            editingFeatureId = null; saveState(); renderAdminFeatures(); showToast('Updated!');
+            // Save images to IndexedDB
+            if (adminEditImages.length > 0) {
+                await saveMedia(id, adminEditImages.map(img => ({type:'image', url:img})));
+            } else {
+                await deleteMedia(id);
+            }
+            editingFeatureId = null; adminEditImages = []; saveState(); renderAdminFeatures(); showToast('Updated!');
         }
         async function handleDeleteFeature(id) {
             if (confirm('Permanently delete this usecase?')) {
@@ -1009,9 +1209,9 @@
                 if (s.id === editingCSId) {
                     return `<div class="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border-2 border-slate-blue-400 space-y-3">
                         <input type="text" id="cst-${s.id}" value="${s.title}" placeholder="Title" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 font-bold">
-                        <textarea id="csc-${s.id}" rows="2" placeholder="Challenge" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-none">${s.challenge}</textarea>
-                        <textarea id="css-${s.id}" rows="2" placeholder="Solution" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-none">${s.solution}</textarea>
-                        <textarea id="csi-${s.id}" rows="2" placeholder="Impact" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-none">${s.impact}</textarea>
+                        <textarea id="csc-${s.id}" rows="2" placeholder="Challenge" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-y">${s.challenge}</textarea>
+                        <textarea id="css-${s.id}" rows="2" placeholder="Solution" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-y">${s.solution}</textarea>
+                        <textarea id="csi-${s.id}" rows="2" placeholder="Impact" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-y">${s.impact}</textarea>
                         <input type="text" id="csp-${s.id}" value="${s.pros.join(', ')}" placeholder="Pros (comma separated)" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500">
                         <input type="text" id="csn-${s.id}" value="${s.cons.join(', ')}" placeholder="Limitations (comma separated)" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500">
                         <select id="csst-${s.id}" class="rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none">
@@ -1066,16 +1266,66 @@
             }
         }
 
-        function moveCaseStudy(id, direction) {
+        function moveCaseStudy(id, dir) {
             const sorted = state.caseStudySections.sort((a,b) => a.order - b.order);
             const idx = sorted.findIndex(s => s.id === id);
-            if (idx < 0) return;
-            const swapIdx = idx + direction;
-            if (swapIdx < 0 || swapIdx >= sorted.length) return;
-            const tempOrder = sorted[idx].order;
-            sorted[idx].order = sorted[swapIdx].order;
-            sorted[swapIdx].order = tempOrder;
+            if (idx === -1 || (dir === -1 && idx === 0) || (dir === 1 && idx === sorted.length - 1)) return;
+            const temp = sorted[idx].order;
+            sorted[idx].order = sorted[idx+dir].order;
+            sorted[idx+dir].order = temp;
             saveState(); renderAdminCaseStudies();
+        }
+
+        // -- Admin: Prompt Samples CRUD --
+        let editingPromptId = null;
+        function renderAdminPrompts() {
+            const l = document.getElementById('admin-prompts-list');
+            if (!state.promptSamples || !state.promptSamples.length) { l.innerHTML = '<p class="text-sm text-slate-500 text-center py-8">No prompt samples.</p>'; return; }
+            l.innerHTML = state.promptSamples.map(p => {
+                if (p.id === editingPromptId) {
+                    return `<div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border-2 border-slate-blue-400 space-y-3">
+                        <input type="text" id="pt-${p.id}" value="${p.title}" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none font-bold focus:border-slate-blue-500" placeholder="Prompt Title">
+                        <textarea id="px-${p.id}" rows="3" class="w-full rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm outline-none focus:border-slate-blue-500 resize-y font-mono" placeholder="Prompt Text">${p.text}</textarea>
+                        <div class="flex gap-2 justify-end pt-2">
+                            <button onclick="cancelEditPrompt()" class="px-3 py-1.5 text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-md">Cancel</button>
+                            <button onclick="handleUpdatePrompt('${p.id}')" class="px-3 py-1.5 text-xs font-bold bg-gemini-green text-white rounded-md">Save</button>
+                        </div>
+                    </div>`;
+                } else {
+                    return `<div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 flex justify-between items-start gap-4">
+                        <div class="flex-1 overflow-hidden">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">${p.title}</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-xs truncate font-mono">${p.text}</p>
+                        </div>
+                        <div class="flex gap-2 flex-shrink-0">
+                            <button onclick="startEditPrompt('${p.id}')" class="px-2.5 py-1.5 text-xs font-bold bg-amber-100 text-amber-700 hover:bg-amber-200 dark:bg-amber-900/30 dark:text-amber-400 rounded-md">Edit</button>
+                            <button onclick="handleDeletePrompt('${p.id}')" class="px-2.5 py-1.5 text-xs font-bold bg-red-100 text-red-600 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 rounded-md">Delete</button>
+                        </div>
+                    </div>`;
+                }
+            }).join('');
+        }
+        function handleAddPrompt() {
+            if (!state.promptSamples) state.promptSamples = [];
+            const newId = 'p-' + Date.now();
+            state.promptSamples.unshift({ id: newId, title: 'New Prompt', text: 'Prompt content...' });
+            editingPromptId = newId;
+            saveState(); renderAdminPrompts();
+        }
+        function startEditPrompt(id) { editingPromptId = id; renderAdminPrompts(); }
+        function cancelEditPrompt() { editingPromptId = null; renderAdminPrompts(); }
+        function handleUpdatePrompt(id) {
+            const p = state.promptSamples.find(x => x.id === id); if (!p) return;
+            p.title = document.getElementById(`pt-${id}`).value.trim();
+            p.text = document.getElementById(`px-${id}`).value.trim();
+            editingPromptId = null;
+            saveState(); renderAdminPrompts(); updateDashboard(); showToast('Prompt saved!');
+        }
+        function handleDeletePrompt(id) {
+            if (confirm('Delete this prompt sample?')) {
+                state.promptSamples = state.promptSamples.filter(x => x.id !== id);
+                saveState(); renderAdminPrompts(); updateDashboard(); showToast('Deleted!');
+            }
         }
 
         // ===== FEEDBACK =====
@@ -1128,6 +1378,97 @@
                 } catch(err) { console.error(err); showToast('Invalid backup file', 'error'); }
             };
             reader.readAsText(file); event.target.value = '';
+        }
+        // ===== SLACK CANVAS =====
+        function generateSlackCanvasText() {
+            const icons = ['🔍','🛡️','✅','🗺️','📊','🎧','🗄️','📋','⚡','🔧'];
+            const activeSections = (state.caseStudySections || []).filter(s => s.status === 'active').sort((a,b) => a.order - b.order);
+            const total = state.features.length;
+            const csCount = activeSections.length;
+            const oneWeekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+            const recent = state.features.filter(f => (f.createdAt || parseInt(f.id)) > oneWeekAgo).length;
+
+            let text = `📓 ${state.portalTitle}\n`;
+            text += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+            // Overview
+            const o = state.landingOverview;
+            text += `📋 ${o.title}\n`;
+            text += `${o.content}\n`;
+            if (o.supportContext) text += `\n${o.supportContext}\n`;
+            text += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+            // Case Studies
+            text += `📊 Use Cases & Impact (${csCount} Active)\n\n`;
+            activeSections.forEach((s, idx) => {
+                const icon = icons[idx % icons.length];
+                text += `${icon} ${idx + 1}. ${s.title}\n`;
+                text += `   Challenge: ${s.challenge}\n`;
+                text += `   Solution: ${s.solution}\n`;
+                text += `   Impact: ${s.impact}\n`;
+                if (s.pros.length) text += `   ✅ Pros: ${s.pros.join(', ')}\n`;
+                if (s.cons.length) text += `   ⚠️ Limitations: ${s.cons.join(', ')}\n`;
+                text += `\n`;
+            });
+
+            text += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+            // Stats
+            text += `📈 Portal Stats\n`;
+            text += `• ${total} Published Usecases\n`;
+            text += `• ${csCount} Active Case Studies\n`;
+            text += `• ${recent} Recently Updated (7 days)\n\n`;
+
+            text += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+            // Summary
+            text += `💡 Summary\n`;
+            text += `${state.landingSummary}\n`;
+
+            return text;
+        }
+
+        function openSlackCanvas() {
+            const text = generateSlackCanvasText();
+            document.getElementById('slack-canvas-content').textContent = text;
+            document.getElementById('slackCanvasModal').showModal();
+        }
+
+        function closeSlackCanvas() {
+            document.getElementById('slackCanvasModal').close();
+        }
+
+        document.getElementById('slackCanvasModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('slackCanvasModal')) closeSlackCanvas();
+        });
+
+        async function copySlackCanvas() {
+            const text = document.getElementById('slack-canvas-content').textContent;
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast('Copied to clipboard!');
+            } catch(e) {
+                // Fallback for older browsers
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('Copied to clipboard!');
+            }
+        }
+
+        function downloadSlackCanvas() {
+            const text = document.getElementById('slack-canvas-content').textContent;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${state.portalTitle.replace(/[^a-zA-Z0-9]/g, '_')}_slack_canvas.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('Canvas downloaded!');
         }
     </script>
 </body>
